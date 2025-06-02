@@ -1,0 +1,28 @@
+:root {
+  --background-color: #343d4b;
+  --background-color-details: #222831;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+
+  color: white;
+  background-color: var(--background-color);
+
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+
+  font-family: 'Montserrat', sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
