@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-
+/* Вывести динамически данные с API */
 export const useWeatherStore = defineStore('weather', {
     state: () => ({
         location: {
@@ -7,7 +7,6 @@ export const useWeatherStore = defineStore('weather', {
         },
         current: {
             date: '20 Jun 2022',
-            day: 'Monday',
             temperature: '29',
             condition: 'Sunny',
             precipitation: '0%',
@@ -18,7 +17,7 @@ export const useWeatherStore = defineStore('weather', {
             forecastday: [
                 {
                     date: '20 Jun 2022',
-                    temperature: '30',
+                    temperature: '29',
                     condition: 'Sunny'
                 },
                 {
@@ -30,20 +29,17 @@ export const useWeatherStore = defineStore('weather', {
                     date: '22 Jun 2022',
                     temperature: '17',
                     condition: 'Cloudy'
+                },
+                {
+                    date: "23 Jun 2022",
+                    temperature: '24',
+                    condition: 'Sunny',
                 }
             ]
         }
     }),
     getters: {
-        fullDate: (state) => `${state.day}, ${state.date}`,
     },
     actions: {
-        setWeather(data) {
-            this.city = data.city
-            this.day = data.day
-            this.date = data.date
-            this.temperature = data.temperature
-            this.condition = data.condition
-        }
     }
 })

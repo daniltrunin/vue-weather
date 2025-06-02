@@ -1,20 +1,24 @@
 <script setup>
-const day = 'Wednesay';
+defineProps({
+  date: String,
+  temperature: String,
+  icon: String,
+});
 </script>
 
 <template>
   <section class="forecast">
     <!-- Вывести динамически картинку с погодой -->
-    <img src="../assets/cloudy-icon.svg" alt="" />
-    <div class="day">{{ day.slice(0, 3) }}</div>
-    <div class="temperature">22 C</div>
+    <img src="../assets/cloudy-icon.svg" />
+    <div class="date">{{ date.slice(0, 6) }}</div>
+    <div class="temperature">{{ temperature }} C</div>
   </section>
 </template>
 
 <style scoped>
 .forecast {
-  width: 100px;
-  height: 160px;
+  width: 105px;
+  height: 165px;
 
   background-color: var(--forecast-color);
 
@@ -24,10 +28,10 @@ const day = 'Wednesay';
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 16px;
 }
 
-.day {
+.date {
   font-weight: 500;
   font-size: 20px;
 }

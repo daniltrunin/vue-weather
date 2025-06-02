@@ -2,17 +2,17 @@
 import { useWeatherStore } from '@/stores/store';
 const weather = useWeatherStore();
 </script>
-
+<!-- Вывести динамически данные с API -->
 <template>
   <section class="main">
-    <div class="main__upper">
-      <h1 class="day">{{ weather.current.day }}</h1>
+    <div class="upper">
       <h2 class="date">{{ weather.current.date }}</h2>
       <h2 class="city">{{ weather.location.city }}</h2>
     </div>
-    <div class="main__footer">
+    <div class="footer">
       <!-- Вывести динамически картинку с погодой -->
-      <h2 class="temperature">{{ weather.current.temperature }}</h2>
+      <img class="weather-icon" src="../assets/sunny-icon.svg" alt="" />
+      <h2 class="temperature">{{ weather.current.temperature }} °C</h2>
       <h2 class="condition">{{ weather.current.condition }}</h2>
     </div>
   </section>
@@ -35,9 +35,11 @@ const weather = useWeatherStore();
   justify-content: space-between;
 
   padding: 48px 0 48px 32px;
+
+  z-index: 1;
 }
 
-.main__upper {
+.upper {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -65,10 +67,15 @@ const weather = useWeatherStore();
   content: url('../assets/location-icon.svg');
 }
 
-.main__footer {
+.footer {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.weather-icon {
+  width: 82px;
+  height: 82px;
 }
 
 .temperature {

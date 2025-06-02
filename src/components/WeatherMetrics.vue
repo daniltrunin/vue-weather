@@ -13,7 +13,7 @@ import Metric from './Metric.vue';
 
 <template>
   <section class="metrics">
-    <!-- Здесь нужно будет сделать вывод динамическим в завимиости от того, на какой день в WeatherForecast я нажимаю -->
+    <!-- Здесь нужно будет сделать вывод динамическим в зависимости от того, на какой день в WeatherForecast я нажимаю -->
     <Metric
       v-for="metric in metrics"
       :key="metric.name"

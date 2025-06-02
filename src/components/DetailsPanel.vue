@@ -1,12 +1,14 @@
 <script setup>
+import LocationInput from './LocationInput.vue';
 import WeatherForecast from './WeatherForecast.vue';
 import WeatherMetrics from './WeatherMetrics.vue';
 </script>
-
+<!-- Вывести динамически данные с API -->
 <template>
   <section class="details">
     <WeatherMetrics />
     <WeatherForecast />
+    <LocationInput />
   </section>
 </template>
 
@@ -24,10 +26,10 @@ import WeatherMetrics from './WeatherMetrics.vue';
   flex-direction: column;
   justify-content: space-between;
 
-  padding: 48px 50px 48px 90px;
+  padding: 48px 45px 48px 90px;
 
   position: relative;
   left: -40px;
-  z-index: -1;
+  z-index: 0;
 }
 </style>

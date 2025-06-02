@@ -7,8 +7,23 @@ import Forecast from './Forecast.vue';
 
 <template>
   <section class="forecasts">
-    <Forecast />
+    <Forecast
+      v-for="(item, index) in weather.forecast.forecastday"
+      :key="index"
+      :date="item.date"
+      :temperature="item.temperature"
+    />
   </section>
 </template>
 
-<style scoped></style>
+<style scoped>
+.forecasts {
+  display: flex;
+  justify-content: center;
+  gap: 1px;
+
+  background-color: var(--background-forecast-color);
+
+  border-radius: 10px;
+}
+</style>
