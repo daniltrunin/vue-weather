@@ -1,6 +1,8 @@
 :root {
   --background-color: #343d4b;
   --background-color-details: #222831;
+
+  --forecast-color: #272e37;
 }
 
 *,

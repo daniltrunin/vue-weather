@@ -6,13 +6,14 @@ const weather = useWeatherStore();
 <template>
   <section class="main">
     <div class="main__upper">
-      <h1 class="day">{{ weather.day }}</h1>
-      <h2 class="date">{{ weather.date }}</h2>
-      <h2 class="city">{{ weather.city }}</h2>
+      <h1 class="day">{{ weather.current.day }}</h1>
+      <h2 class="date">{{ weather.current.date }}</h2>
+      <h2 class="city">{{ weather.location.city }}</h2>
     </div>
     <div class="main__footer">
-      <h2 class="temperature">{{ weather.temperature }}</h2>
-      <h2 class="condition">{{ weather.condition }}</h2>
+      <!-- Вывести динамически картинку с погодой -->
+      <h2 class="temperature">{{ weather.current.temperature }}</h2>
+      <h2 class="condition">{{ weather.current.condition }}</h2>
     </div>
   </section>
 </template>

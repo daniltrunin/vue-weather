@@ -1,10 +1,12 @@
 <script setup>
+import WeatherForecast from './WeatherForecast.vue';
 import WeatherMetrics from './WeatherMetrics.vue';
 </script>
 
 <template>
   <section class="details">
     <WeatherMetrics />
+    <WeatherForecast />
   </section>
 </template>
 
