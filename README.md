@@ -1,29 +1,17 @@
-# VueWeather
-
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+### Добавить функционал
 
 ```sh
-npm install
+Отрисовка погоды по той локации, которая определяется у пользователя в браузере при запуске приложения
 ```
 
-### Compile and Hot-Reload for Development
-
 ```sh
-npm run dev
+Отрисовка иконок погоды по ключевым словам с API
 ```
 
-### Compile and Minify for Production
+```sh
+Смена рендера текущей информации о погоде исходя из того, на какой день мы кликнули
+```
 
 ```sh
-npm run build
+Ввод локации с задержкой и вывод данных
 ```
