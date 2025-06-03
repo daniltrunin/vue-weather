@@ -3,9 +3,9 @@ import { useWeatherStore } from '@/stores/store';
 const weather = useWeatherStore();
 
 const metrics = [
-  { name: 'PRECIPITATION', value: weather.current.precipitation },
+  { name: 'PRECIPITATION', value: `${weather.current.precipitation} mm` },
   { name: 'HUMIDITY', value: weather.current.humidity },
-  { name: 'WIND', value: weather.current.wind },
+  { name: 'WIND', value: `${weather.current.wind} km/h` },
 ];
 
 import Metric from './Metric.vue';
@@ -18,9 +18,15 @@ import Metric from './Metric.vue';
       v-for="metric in metrics"
       :key="metric.name"
       :name="metric.name"
-      :value="metric.value"
+      :value="String(metric.value)"
     />
   </section>
 </template>
 
-<style scoped></style>
+<style scoped>
+.metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+</style>

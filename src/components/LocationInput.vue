@@ -24,7 +24,7 @@ input {
 }
 
 input::placeholder {
-  color: rgb(255, 255, 255, 0.25);
+  color: rgb(255, 255, 255, 0.35);
   text-align: center;
 }
 

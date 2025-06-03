@@ -2,7 +2,9 @@
 import { useWeatherStore } from '@/stores/store';
 const weather = useWeatherStore();
 </script>
+
 <!-- Вывести динамически данные с API -->
+
 <template>
   <section class="main">
     <div class="upper">

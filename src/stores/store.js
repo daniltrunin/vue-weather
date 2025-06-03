@@ -3,43 +3,65 @@ import { defineStore } from 'pinia'
 export const useWeatherStore = defineStore('weather', {
     state: () => ({
         location: {
-            city: 'Biarritz, FR',
+            city: '',
         },
         current: {
-            date: '20 Jun 2022',
-            temperature: '29',
-            condition: 'Sunny',
-            precipitation: '0%',
-            humidity: '42%',
-            wind: '3 km/h'
+            date: '',
+            temperature: '',
+            condition: '',
+            precipitation: '',
+            humidity: '',
+            wind: ''
         },
         forecast: {
             forecastday: [
                 {
-                    date: '20 Jun 2022',
-                    temperature: '29',
-                    condition: 'Sunny'
+                    date: '',
+                    temperature: '',
+                    condition: ''
                 },
                 {
-                    date: '21 Jun 2022',
-                    temperature: '35',
-                    condition: 'Rainy'
+                    date: '',
+                    temperature: '',
+                    condition: ''
                 },
                 {
-                    date: '22 Jun 2022',
-                    temperature: '17',
-                    condition: 'Cloudy'
+                    date: '',
+                    temperature: '',
+                    condition: ''
                 },
                 {
-                    date: "23 Jun 2022",
-                    temperature: '24',
-                    condition: 'Sunny',
+                    date: '',
+                    temperature: '',
+                    condition: '',
                 }
             ]
         }
     }),
     getters: {
+        get() {
+            return useWeatherStore
+        }
     },
     actions: {
+        set(data) {
+            this.location.city = data.location.name;
+
+            const date = new Date(data.location.localtime_epoch * 1000);
+            const formattedDate = Intl.DateTimeFormat('en-US', {
+                timeZone: data.location.tz_id,
+                day: 'numeric',
+                month: 'long',
+                hour: '2-digit',
+                weekday: 'long'
+            }).format(date)
+            this.current.date = formattedDate
+
+            this.current.temperature = data.current.temp_c
+            this.current.condition = data.current.condition.text
+            this.current.precipitation = data.current.precip_mm
+            this.current.humidity = data.current.humidity
+            this.current.wind = data.current.wind_kph
+        }
     }
 })
