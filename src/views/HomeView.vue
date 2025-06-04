@@ -4,6 +4,9 @@ import DetailsPanel from '@/components/DetailsPanel.vue';
 
 import { useWeatherStore } from '@/stores/store';
 import { ref, onMounted } from 'vue';
+
+/* import getUserLocation from '@/services/userLocation'; */
+
 import api from '@/api/axios';
 
 const weather = useWeatherStore();
@@ -17,7 +20,6 @@ const fetch = async () => {
     const response = await api.get('/endpoint');
     data.value = response.data;
     weather.set(data.value);
-    console.log(data.value);
   } catch (e) {
     error.value = e;
   } finally {
@@ -25,7 +27,11 @@ const fetch = async () => {
   }
 };
 
-onMounted(fetch);
+onMounted(async () => {
+  /* Добавить запрос на локацию пользователя, чтобы при старте сразу выдать ему нужный город */
+  /* await getUserLocation(); */
+  await fetch();
+});
 </script>
 
 <template>

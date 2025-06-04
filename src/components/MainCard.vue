@@ -8,8 +8,8 @@ const weather = useWeatherStore();
 <template>
   <section class="main">
     <div class="upper">
-      <h2 class="date">{{ weather.current.date }}</h2>
       <h2 class="city">{{ weather.location.city }}</h2>
+      <h2 class="date">{{ weather.current.date }}</h2>
     </div>
     <div class="footer">
       <!-- Вывести динамически картинку с погодой -->

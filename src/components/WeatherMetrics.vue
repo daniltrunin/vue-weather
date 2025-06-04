@@ -4,7 +4,7 @@ const weather = useWeatherStore();
 
 const metrics = [
   { name: 'PRECIPITATION', value: `${weather.current.precipitation} mm` },
-  { name: 'HUMIDITY', value: weather.current.humidity },
+  { name: 'HUMIDITY', value: `${weather.current.humidity} %` },
   { name: 'WIND', value: `${weather.current.wind} km/h` },
 ];
 
@@ -13,7 +13,8 @@ import Metric from './Metric.vue';
 
 <template>
   <section class="metrics">
-    <!-- Здесь нужно будет сделать вывод динамическим в зависимости от того, на какой день в WeatherForecast я нажимаю -->
+    <!-- Здесь нужно будет сделать вывод динамическим в зависимости от того, 
+     на какой день в WeatherForecast я нажимаю -->
     <Metric
       v-for="metric in metrics"
       :key="metric.name"

@@ -1,8 +1,16 @@
 <script setup>
-import { useWeatherStore } from '@/stores/store';
-const weather = useWeatherStore();
-
 import Forecast from './Forecast.vue';
+import { useWeatherStore, useForecastStore } from '@/stores/store';
+
+const weather = useWeatherStore();
+const forecastStore = useForecastStore();
+
+const activeForecast = forecastStore.get();
+// activeForecast.activeForecast равняется '1'
+
+const handleClick = (index) => {
+  forecastStore.setActive(index);
+};
 </script>
 
 <template>
@@ -12,6 +20,8 @@ import Forecast from './Forecast.vue';
       :key="index"
       :date="String(item.date)"
       :temperature="String(item.temperature)"
+      :isActive="activeForecast.activeForecast == index"
+      @click="() => handleClick(index)"
     />
   </section>
 </template>
