@@ -6,10 +6,10 @@ const weather = useWeatherStore();
 const forecastStore = useForecastStore();
 
 const activeForecast = forecastStore.get();
-// activeForecast.activeForecast равняется '1'
 
 const handleClick = (index) => {
   forecastStore.setActive(index);
+  weather.changeCurrentForecast(index);
 };
 </script>
 

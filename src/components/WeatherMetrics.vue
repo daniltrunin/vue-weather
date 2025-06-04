@@ -1,12 +1,13 @@
 <script setup>
+import { computed } from 'vue';
 import { useWeatherStore } from '@/stores/store';
 const weather = useWeatherStore();
 
-const metrics = [
+const metrics = computed(() => [
   { name: 'PRECIPITATION', value: `${weather.current.precipitation} mm` },
   { name: 'HUMIDITY', value: `${weather.current.humidity} %` },
   { name: 'WIND', value: `${weather.current.wind} km/h` },
-];
+]);
 
 import Metric from './Metric.vue';
 </script>

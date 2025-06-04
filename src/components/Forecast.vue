@@ -32,6 +32,8 @@ defineProps({
   gap: 16px;
 
   cursor: pointer;
+
+  transition: all 0.3s;
 }
 
 .active-forecast {
