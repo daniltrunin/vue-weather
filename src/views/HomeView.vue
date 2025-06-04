@@ -17,6 +17,7 @@ const fetch = async () => {
     const response = await api.get('/endpoint');
     data.value = response.data;
     weather.set(data.value);
+    console.log(data.value);
   } catch (e) {
     error.value = e;
   } finally {

@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { formatForecastDate, formatMainCardDate } from '@/services/formatForecastDate';
 /* Вывести динамически данные с API */
 export const useWeatherStore = defineStore('weather', {
     state: () => ({
@@ -30,11 +31,6 @@ export const useWeatherStore = defineStore('weather', {
                     temperature: '',
                     condition: ''
                 },
-                {
-                    date: '',
-                    temperature: '',
-                    condition: '',
-                }
             ]
         }
     }),
@@ -45,23 +41,22 @@ export const useWeatherStore = defineStore('weather', {
     },
     actions: {
         set(data) {
+            /* Вывести динамически картинку погоды в Forecast */
             this.location.city = data.location.name;
 
-            const date = new Date(data.location.localtime_epoch * 1000);
-            const formattedDate = Intl.DateTimeFormat('en-US', {
-                timeZone: data.location.tz_id,
-                day: 'numeric',
-                month: 'long',
-                hour: '2-digit',
-                weekday: 'long'
-            }).format(date)
-            this.current.date = formattedDate
+            this.current.date = formatMainCardDate(data.location.localtime_epoch, data.location.tz_id);
 
             this.current.temperature = data.current.temp_c
             this.current.condition = data.current.condition.text
             this.current.precipitation = data.current.precip_mm
             this.current.humidity = data.current.humidity
             this.current.wind = data.current.wind_kph
+
+            for (let i = 0; i < this.forecast.forecastday.length; i++) {
+                const forecast = formatForecastDate(data.forecast.forecastday[i].date_epoch, data.location.tz_id);
+                this.forecast.forecastday[i].date = forecast
+                this.forecast.forecastday[i].temperature = data.forecast.forecastday[i].day.avgtemp_c
+            }
         }
     }
 })

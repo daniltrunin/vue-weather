@@ -10,15 +10,15 @@ input {
 
   padding: 14px 14px;
 
-  border: none;
-  border-radius: 10px;
+  border: 1px solid var(--background-color);
+  border-radius: 4px;
 
   font-weight: 550;
   font-size: 16px;
   font-family: 'Montserrat', sans-serif;
 
   color: white;
-  background: linear-gradient(90deg, rgba(144, 217, 224, 1) 1%, rgba(84, 96, 230, 1) 100%);
+  background: transparent;
 
   text-align: center;
 }

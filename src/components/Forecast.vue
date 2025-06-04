@@ -10,14 +10,14 @@ defineProps({
   <section class="forecast">
     <!-- Вывести динамически картинку с погодой -->
     <img src="../assets/cloudy-icon.svg" />
-    <div class="date">{{ date.slice(0, 6) }}</div>
+    <div class="date">{{ date }}</div>
     <div class="temperature">{{ temperature }} C</div>
   </section>
 </template>
 
 <style scoped>
 .forecast {
-  width: 105px;
+  width: 100%;
   height: 165px;
 
   background-color: var(--forecast-color);

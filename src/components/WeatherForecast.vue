@@ -10,8 +10,8 @@ import Forecast from './Forecast.vue';
     <Forecast
       v-for="(item, index) in weather.forecast.forecastday"
       :key="index"
-      :date="item.date"
-      :temperature="item.temperature"
+      :date="String(item.date)"
+      :temperature="String(item.temperature)"
     />
   </section>
 </template>
