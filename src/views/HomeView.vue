@@ -2,14 +2,17 @@
 import MainCard from '@/components/MainCard.vue';
 import DetailsPanel from '@/components/DetailsPanel.vue';
 
-import { useWeatherStore } from '@/stores/store';
-import { ref, onMounted } from 'vue';
+import { useWeatherStore, useInputStore, useForecastStore } from '@/stores/store';
+import { ref, onMounted, watch } from 'vue';
+import debounce from 'debounce';
 
 /* import getUserLocation from '@/services/userLocation'; */
 
 import api from '@/api/axios';
 
 const weather = useWeatherStore();
+const forecast = useForecastStore();
+const input = useInputStore();
 
 let data = ref(null);
 let loading = ref(true);
@@ -17,9 +20,19 @@ let error = ref(null);
 
 const fetch = async () => {
   try {
-    const response = await api.get('/endpoint');
+    const city = input.get;
+    const response = await api.post(
+      '',
+      {},
+      {
+        params: {
+          q: city,
+        },
+      },
+    );
     data.value = response.data;
     weather.set(data.value);
+    forecast.setActive(0);
   } catch (e) {
     error.value = e;
   } finally {
@@ -27,11 +40,20 @@ const fetch = async () => {
   }
 };
 
-onMounted(async () => {
-  /* Добавить запрос на локацию пользователя, чтобы при старте сразу выдать ему нужный город */
-  /* await getUserLocation(); */
-  await fetch();
-});
+watch(
+  () => input.input,
+  debounce(() => {
+    fetch();
+  }, 500),
+  { immediate: true },
+);
+
+/* Старый запрос onMounted */
+// onMounted(async () => {
+//   /* Добавить запрос на локацию пользователя, чтобы при старте сразу выдать ему нужный город */
+//   /* await getUserLocation(); */
+//   await fetch();
+// });
 </script>
 
 <template>

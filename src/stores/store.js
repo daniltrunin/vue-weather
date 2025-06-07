@@ -100,3 +100,21 @@ export const useForecastStore = defineStore('forecast', {
         }
     }
 })
+
+export const useInputStore = defineStore('input', {
+    state: () => ({
+        input: 'Moscow'
+    }),
+    getters: {
+        get() {
+            return this.input
+        }
+    },
+    actions: {
+        setInput(value) {
+            this.$patch({
+                input: value
+            })
+        }
+    }
+})

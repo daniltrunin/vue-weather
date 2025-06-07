@@ -1,7 +1,23 @@
-<script setup></script>
+<script setup>
+import { ref } from 'vue';
+import { useInputStore } from '../stores/store.js';
+
+const inputStore = useInputStore();
+const inputValue = ref('');
+
+const handleInput = (e) => {
+  console.log(e.target.value);
+  inputStore.setInput(e.target.value);
+};
+</script>
 
 <template>
-  <input type="text" placeholder="Enter the name of the location" />
+  <input
+    type="text"
+    placeholder="Enter name of the location"
+    :value="inputValue"
+    @input="handleInput"
+  />
 </template>
 
 <style scoped>
