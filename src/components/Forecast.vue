@@ -1,5 +1,5 @@
 <script setup>
-defineProps({
+const props = defineProps({
   date: String,
   temperature: String,
   icon: String,
@@ -10,7 +10,7 @@ defineProps({
 <template>
   <section :class="['forecast', { 'active-forecast': isActive }]">
     <!-- Вывести динамически картинку с погодой -->
-    <img src="../assets/cloudy-icon.svg" />
+    <img :src="icon" />
     <div class="date">{{ date }}</div>
     <div class="temperature">{{ temperature }} °C</div>
   </section>

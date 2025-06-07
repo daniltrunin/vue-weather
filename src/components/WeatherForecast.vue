@@ -19,6 +19,7 @@ const handleClick = (index) => {
       v-for="(item, index) in weather.forecast.forecastday"
       :key="index"
       :date="String(item.date)"
+      :icon="String(item.image)"
       :temperature="String(item.temperature)"
       :isActive="activeForecast.activeForecast == index"
       @click="() => handleClick(index)"

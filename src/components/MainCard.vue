@@ -13,7 +13,7 @@ const weather = useWeatherStore();
     </div>
     <div class="footer">
       <!-- Вывести динамически картинку с погодой -->
-      <img class="weather-icon" src="../assets/sunny-icon.svg" alt="" />
+      <img class="weather-icon" :src="weather.current.image" alt="" />
       <h2 class="temperature">{{ weather.current.temperature }} °C</h2>
       <h2 class="condition">{{ weather.current.condition }}</h2>
     </div>

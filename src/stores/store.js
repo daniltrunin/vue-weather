@@ -10,6 +10,7 @@ export const useWeatherStore = defineStore('weather', {
             date: null,
             temperature: null,
             condition: null,
+            image: null,
             precipitation: null,
             humidity: null,
             wind: null
@@ -20,6 +21,7 @@ export const useWeatherStore = defineStore('weather', {
                 date: null,
                 temperature: null,
                 condition: null,
+                image: null,
                 precipitation: null,
                 humidity: null,
                 wind: null,
@@ -44,6 +46,7 @@ export const useWeatherStore = defineStore('weather', {
                     ),
                     temperature: data.current.temp_c,
                     condition: data.current.condition.text,
+                    image: data.current.condition.icon,
                     precipitation: data.current.precip_mm,
                     humidity: data.current.humidity,
                     wind: data.current.wind_kph
@@ -55,6 +58,7 @@ export const useWeatherStore = defineStore('weather', {
                 this.forecast.forecastday[i].date = formatForecastDate(data.forecast.forecastday[i].date_epoch, data.location.tz_id)
                 this.forecast.forecastday[i].temperature = data.forecast.forecastday[i].day.avgtemp_c
                 this.forecast.forecastday[i].condition = data.forecast.forecastday[i].day.condition.text
+                this.forecast.forecastday[i].image = data.forecast.forecastday[i].day.condition.icon
                 this.forecast.forecastday[i].precipitation = data.forecast.forecastday[i].day.totalprecip_mm
                 this.forecast.forecastday[i].humidity = data.forecast.forecastday[i].day.avghumidity
                 this.forecast.forecastday[i].wind = data.forecast.forecastday[i].day.maxwind_kph
@@ -69,6 +73,7 @@ export const useWeatherStore = defineStore('weather', {
                     date: this.forecast.forecastday[index].fullDate,
                     temperature: this.forecast.forecastday[index].temperature,
                     condition: this.forecast.forecastday[index].condition,
+                    image: this.forecast.forecastday[index].image,
                     precipitation: this.forecast.forecastday[index].precipitation,
                     humidity: this.forecast.forecastday[index].humidity,
                     wind: this.forecast.forecastday[index].wind

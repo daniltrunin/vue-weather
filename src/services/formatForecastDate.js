@@ -4,7 +4,6 @@ export const formatMainCardDate = (data, tzId) => {
         timeZone: tzId,
         day: 'numeric',
         month: 'long',
-        hour: '2-digit',
         weekday: 'long'
     }).format(date)
     return formattedDate
