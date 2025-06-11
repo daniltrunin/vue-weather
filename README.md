@@ -6,13 +6,13 @@
 <h4 align="center">Created by frontend developer from Orenburg, Russia — <a href="https://github.com/daniltrunin" target="_blank">Daniil</a></h4>
 
 > [!IMPORTANT]
-> Works with data from the weatherapi.com API  
-> Fetches and renders data dynamically on application start  
-> Provides all the weather information you need, including icons  
-> Allows viewing weather forecasts for upcoming days, rendered automatically  
-> Includes an input field to set a location name and instantly fetch new data and forecasts  
-> Input requests are debounced to improve performance  
-> Uses the intuitive Pinia store for state management  
+> — Works with data from the weatherapi.com API  
+> — Fetches and renders data dynamically on application start  
+> — Provides all the weather information you need, including icons  
+> — Allows viewing weather forecasts for upcoming days, rendered automatically  
+> — Includes an input field to set a location name and instantly fetch new data and forecasts  
+> — Input requests are debounced to improve performance  
+> — Uses the intuitive Pinia store for state management  
 
 ![screenshot](./public/presentation.gif)
 
